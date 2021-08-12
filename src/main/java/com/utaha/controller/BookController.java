@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -53,5 +54,11 @@ public class BookController {
         System.out.println("updateBook=>>" + books);
         bookService.updateBook(books);
         return "redirect:/book/all"; //重定向不能重复提交
+    }
+    //form表单提交 修改书籍
+    @RequestMapping("/delete/{bookId}")
+    public String deleteBook(@PathVariable("bookId") int id) {
+        bookService.deleteBook(id);
+        return "redirect:/book/all";
     }
 }

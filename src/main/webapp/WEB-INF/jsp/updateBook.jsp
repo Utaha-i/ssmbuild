@@ -16,6 +16,10 @@
         </div>
     </div>
 
+    <%--修改问题
+        1.考虑事务
+        2.考虑sql
+    --%>
     <form action="${pageContext.request.contextPath}/book/update" method="post">
         <input type="hidden" name="bookID" value="${queryBooks.bookID}"/>
         <div class="form-group">
