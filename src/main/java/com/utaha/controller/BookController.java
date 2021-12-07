@@ -61,4 +61,16 @@ public class BookController {
         bookService.deleteBook(id);
         return "redirect:/book/all";
     }
+
+    //搜索（查询一本书）
+    @RequestMapping("/queryBook")
+    public String queryBookByName(String queryBookName ,Model model) {
+        List<Books> books = bookService.queryBookByName(queryBookName);
+        if(books == null){
+            books = bookService.queryAllBook();
+        }
+
+        model.addAttribute("list", books);
+        return "allBook";
+    }
 }

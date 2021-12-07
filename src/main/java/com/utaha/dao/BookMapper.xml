@@ -33,4 +33,12 @@
         from books
     </select>
 
+    <select id="queryBookByName" resultType="com.utaha.pojo.Books">
+        SELECT
+            *
+        FROM
+            books
+        WHERE
+            bookName LIKE concat("%",#{bookName},"%")
+    </select>
 </mapper>
